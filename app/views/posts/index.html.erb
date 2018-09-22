@@ -1,21 +1,9 @@
-<header>
-  <div class="header-logo">
-    <a href="/">Midas</a>
-  </div>
-  <ul class="header-menus">
-    <li>
-      <a href="/about">Midasとは</a>
-    </li>
-  </ul>
-</header>
-
 <div class="main posts-index">
   <div class="container">
+    <% @posts.each do |post| %>
     <div class="posts-index-item">
-      今日からProgateでRailsの勉強するよー！
+      <%= post.content %>
     </div>
-    <div class="posts-index-item">
-      投稿一覧ページ作成中！
-    </div>
+    <% end %>
   </div>
 </div>

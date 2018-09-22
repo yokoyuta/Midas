@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DeviseRails</title>
+    <title>Midas</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,17 +11,32 @@
 
   <body>
     <header>
-            <nav>
-                <% if user_signed_in? %>
-                <strong><%= link_to current_user.username, pages_show_path %></strong>
-                <%= link_to 'プロフィール変更', edit_user_registration_path %>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            <% else %>
-                <%= link_to 'サインアップ', new_user_registration_path %>
-                <%= link_to 'ログイン', new_user_session_path %>
-                <% end %>
-            </nav>
-        </header>
+      <div class="header-logo">
+        <%= link_to("Midas","/")%>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("Midasとは","/about")%>
+        </li>
+        <li>
+          <%= link_to("投稿一覧","/posts/index") %>
+        </li>
+        <li>
+          <%= link_to 'サインアップ', new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to 'ログイン', new_user_session_path %>
+        </li>
+      </ul>
+      <nav>
+        <% if user_signed_in? %>
+        <strong><%= link_to current_user.username, pages_show_path %></strong>
+        <%= link_to 'プロフィール変更', edit_user_registration_path %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <% else %>
+        <% end %>
+      </nav>
+    </header>
 
    <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>

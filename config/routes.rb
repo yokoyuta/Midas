@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get "weapon/top" => "weapon#top"
+
   post "favorites/:post_id/create" => "favorites#create"
   post "favorites/:post_id/destroy" => "favorites#destroy"
   get "posts/index" => "posts#index"
   get "posts/favorite" => "posts#favorite"
-  
+
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
   post "posts/create" => "posts#create"

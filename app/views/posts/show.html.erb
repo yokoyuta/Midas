@@ -10,6 +10,13 @@
       <div class="post-time">
         <%= @post.user.email %>
       </div>
+
+      <% if Favorite.find_by(user_id: @user.id, post_id: @post.id) %>
+      　<%= link_to("お気に入り！済み", "/favorites/#{@post.id}/destroy", {method: "post"}) %>
+      <% else %>
+      　<%= link_to("お気に入り！", "/favorites/#{@post.id}/create", {method: "post"}) %>
+      <% end %>
+
       <div class="post-menus">
         <%= link_to("編集", "/posts/#{@post.id}/edit") %>
         <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>

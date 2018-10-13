@@ -1,0 +1,11 @@
+<div class="main posts-index">
+  <div class="container">
+    <% @favorites.each do |favorite| %>
+    <% post = Post.find_by(id: favorite.post_id) %>
+    <div class="posts-index-item">
+      <%= link_to(post.content, "/posts/#{post.id}") %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= Status.find_by(user_id: current_user.id)%>
